@@ -11,7 +11,7 @@ return elements in Last In First Out order.
 	implementing a Stack?
 """
 
-from singly_linked_list import Node, LinkedList
+from singly_linked_list import LinkedList
 
 # --- array ---
 # class Stack:
