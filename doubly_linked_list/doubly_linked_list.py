@@ -97,7 +97,7 @@ class DoublyLinkedList:
 			self.head = None
 			self.tail = None
 			return value
-		# otherwise assign new head and return the value
+		# otherwise assign new tail and return the value
 		self.tail = self.tail.prev
 		return value
 
