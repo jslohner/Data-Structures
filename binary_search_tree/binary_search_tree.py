@@ -21,7 +21,7 @@ class BSTNode:
 		if value < self.value:
 			# check if left attr node is none and if it is
 			# create a new node with the passed in value
-			if self.left is None:
+			if not self.left:
 				self.left = BSTNode(value)
 			# otherwise call insert function on left attr node
 			else:
@@ -30,7 +30,7 @@ class BSTNode:
 		else:
 			# check if right attr node is none and if it is
 			# create a new node with the passed in value
-			if self.right is None:
+			if not self.right:
 				self.right = BSTNode(value)
 			# otherwise call insert function on right attr node
 			else:
@@ -45,7 +45,7 @@ class BSTNode:
 		# check if target < current node value
 		elif target < self.value:
 			# if left attr node is none return false
-			if self.left is None:
+			if not self.left:
 				return False
 			# otherwise return contains function call on left attr node
 			else:
@@ -53,7 +53,7 @@ class BSTNode:
 		# check if target >= current node value
 		else:
 			# if right attr node is none return false
-			if self.right is None:
+			if not self.right:
 				return False
 			# otherwise return contains function call on right attr node
 			else:
@@ -63,7 +63,7 @@ class BSTNode:
 	def get_max(self):
 		# if right side of tree is none - meaning there are no
 		# greater values than current node value - return current node value
-		if self.right is None:
+		if not self.right:
 			return self.value
 		# otherwise return get_max function call on right attr node
 		else:
@@ -74,11 +74,11 @@ class BSTNode:
 		# call function on current node value
 		fn(self.value)
 		# if left attr is not none call for_each function on left attr node
-		if self.left is not None:
+		if self.left:
 			self.left.for_each(fn)
 
 		# if right attr is not none call for_each function on right attr node
-		if self.right is not None:
+		if self.right:
 			self.right.for_each(fn)
 
 	# Part 2 -----------------------
@@ -86,7 +86,10 @@ class BSTNode:
 	# Print all the values in order from low to high
 	# Hint:  Use a recursive, depth first traversal
 	def in_order_print(self, node):
-		pass
+		if node:
+			self.in_order_print(node.left)
+			print(node.value)
+			self.in_order_print(node.right)
 
 	# Print the value of every node, starting with the given node,
 	# in an iterative breadth first traversal
