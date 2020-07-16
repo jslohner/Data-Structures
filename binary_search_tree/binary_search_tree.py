@@ -88,41 +88,53 @@ class BSTNode:
 	# Print all the values in order from low to high
 	# Hint:  Use a recursive, depth first traversal
 	def in_order_print(self, node):
+		# if node exists
 		if node:
+			# traverse left side of tree
 			self.in_order_print(node.left)
+			# print node value
 			print(node.value)
+			# traverse right side of tree
 			self.in_order_print(node.right)
 
 	# Print the value of every node, starting with the given node,
 	# in an iterative breadth first traversal
 	def bft_print(self, node):
+		# create queue
 		q = deque()
+		# add passed in node to queue
 		q.append(node)
-
+		# while length of queue is greater than 0
 		while len(q) > 0:
+			# current node is taken from front of queue
 			current = q.popleft()
+			# if left attr exists append node that is left of current node
 			if current.left:
 				q.append(current.left)
-
+			# if right attr exists append node that is right of current node
 			if current.right:
 				q.append(current.right)
-
+			# print current node value
 			print(current.value)
 
 	# Print the value of every node, starting with the given node,
 	# in an iterative depth first traversal
 	def dft_print(self, node):
+		# create stack
 		stack = []
+		# add passed in node to stack
 		stack.append(node)
-
+		# while length of stack is greater than 0
 		while len(stack) > 0:
+			# current node is taken from top of stack
 			current = stack.pop()
+			# if left attr exists append node that is left of current node
 			if current.left:
 				stack.append(current.left)
-
+			# if right attr exists append node that is right of current node
 			if current.right:
 				stack.append(current.right)
-
+			# print current node value
 			print(current.value)
 
 	# Stretch Goals -------------------------
@@ -130,8 +142,22 @@ class BSTNode:
 
 	# Print Pre-order recursive DFT
 	def pre_order_dft(self, node):
-		pass
+		# if node exists
+		if node:
+			# print node value
+			print(node.value)
+			# traverse left side of tree
+			self.pre_order_dft(node.left)
+			# traverse right side of tree
+			self.pre_order_dft(node.right)
 
 	# Print Post-order recursive DFT
 	def post_order_dft(self, node):
-		pass
+		# if node exists
+		if node:
+			# traverse left side of tree
+			self.post_order_dft(node.left)
+			# traverse right side of tree
+			self.post_order_dft(node.right)
+			# print node value
+			print(node.value)
