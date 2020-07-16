@@ -117,11 +117,11 @@ class BSTNode:
 
 		while len(stack) > 0:
 			current = stack.pop()
-			if current.right:
-				stack.append(current.right)
-
 			if current.left:
 				stack.append(current.left)
+
+			if current.right:
+				stack.append(current.right)
 
 			print(current.value)
 
@@ -135,14 +135,3 @@ class BSTNode:
 	# Print Post-order recursive DFT
 	def post_order_dft(self, node):
 		pass
-#
-# test = BSTNode(1)
-# test.insert(8)
-# test.insert(5)
-# test.insert(7)
-# test.insert(6)
-# test.insert(3)
-# test.insert(4)
-# test.insert(2)
-#
-# test.bft_print(test)
